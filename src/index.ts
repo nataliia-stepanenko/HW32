@@ -1,4 +1,4 @@
-const getDiff = (a: string, b: string) => {
+function getDiff (a: string, b: string): {amount: number; array: string[]}{
     const mainArray: string[] = [...a];
     const arrayToCompare: string[] = [...b];
     const diffArray: string[] = [];
@@ -16,7 +16,7 @@ const getDiff = (a: string, b: string) => {
     };
 
     const amount: number = diffArray.length;
-    return {"amount": amount, "array": diffArray};
+    return {amount: amount, array: diffArray};
 };
 
 

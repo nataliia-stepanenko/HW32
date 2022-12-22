@@ -1,5 +1,5 @@
 "use strict";
-const getDiff = (a, b) => {
+function getDiff(a, b) {
     const mainArray = [...a];
     const arrayToCompare = [...b];
     const diffArray = [];
@@ -17,9 +17,10 @@ const getDiff = (a, b) => {
         ;
     }
     ;
-    let amount = diffArray.length;
-    return { "amount": amount, "array": diffArray };
-};
+    const amount = diffArray.length;
+    return { amount: amount, array: diffArray };
+}
+;
 console.log(getDiff('abc', 'abcd')); // { amount: 1, array: ['d'] }
 console.log(getDiff('abcd', 'cdfe')); // { amount: 4, array: ['a', 'b', 'f', 'e'] }
 console.log(getDiff('abc', 'wbbcc')); // { amount: 2, array: ['a', 'w'] }
