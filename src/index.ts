@@ -15,9 +15,10 @@ const getDiff = (a: string, b: string) => {
         };
     };
 
-    let amount: number = diffArray.length;
+    const amount: number = diffArray.length;
     return {"amount": amount, "array": diffArray};
-}
+};
+
 
 console.log(getDiff('abc', 'abcd')); // { amount: 1, array: ['d'] }
 console.log(getDiff('abcd', 'cdfe')); // { amount: 4, array: ['a', 'b', 'f', 'e'] }
