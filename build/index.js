@@ -2,7 +2,10 @@
 function getDiff(a, b) {
     const mainArray = [...a];
     const arrayToCompare = [...b];
-    const diffArray = [];
+    let diffArray = [];
+    if (a === b) {
+        return { amount: 0, array: [] };
+    }
     for (let item of arrayToCompare) {
         if (!mainArray.includes(item)) {
             diffArray.push(item);
@@ -17,8 +20,7 @@ function getDiff(a, b) {
         ;
     }
     ;
-    const amount = diffArray.length;
-    return { amount: amount, array: diffArray };
+    return { amount: diffArray.length, array: diffArray };
 }
 ;
 console.log(getDiff('abc', 'abcd')); // { amount: 1, array: ['d'] }

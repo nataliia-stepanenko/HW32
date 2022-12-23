@@ -1,7 +1,16 @@
-function getDiff (a: string, b: string): {amount: number; array: string[]}{
+interface GetDiffResult {
+    amount: number,
+    array: string[]
+}
+
+function getDiff (a: string, b: string): GetDiffResult {
     const mainArray: string[] = [...a];
     const arrayToCompare: string[] = [...b];
-    const diffArray: string[] = [];
+    let diffArray: string[] = [];
+
+    if (a === b){
+        return {amount: 0, array: []};
+    }
 
     for (let item of arrayToCompare) {
         if (!mainArray.includes(item)) {
@@ -15,10 +24,8 @@ function getDiff (a: string, b: string): {amount: number; array: string[]}{
         };
     };
 
-    const amount: number = diffArray.length;
-    return {amount: amount, array: diffArray};
+    return {amount: diffArray.length, array: diffArray};
 };
-
 
 console.log(getDiff('abc', 'abcd')); // { amount: 1, array: ['d'] }
 console.log(getDiff('abcd', 'cdfe')); // { amount: 4, array: ['a', 'b', 'f', 'e'] }
